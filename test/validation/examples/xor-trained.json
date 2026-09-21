@@ -1,0 +1,190 @@
+{
+  "training": {
+    "squared_error": 0,
+    "exact_samples": 4,
+    "samples": 4,
+    "predictions": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "seed": 260920,
+    "depth": 1,
+    "activation": "step",
+    "weight_domain": "nonnegative",
+    "epochs": 12,
+    "restarts": 12,
+    "history": [
+      {
+        "restart": 0,
+        "epoch": 0,
+        "loss": 1,
+        "best_loss": 1,
+        "changed_parameters": 2
+      },
+      {
+        "restart": 0,
+        "epoch": 1,
+        "loss": 0,
+        "best_loss": 0,
+        "changed_parameters": 2
+      }
+    ],
+    "dataset_sha256": "c8fb3f40617d5d6a8601fcc10af200a518d0b5975ed26dc0aec937088b7f2d4e"
+  },
+  "format": "simple-npu-v1",
+  "arithmetic": "signed",
+  "layers": [
+    [
+      {
+        "weights": [
+          4,
+          7,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bias": -1,
+        "activation": "step"
+      },
+      {
+        "weights": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bias": -1,
+        "activation": "step"
+      },
+      {
+        "weights": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bias": -1,
+        "activation": "step"
+      },
+      {
+        "weights": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bias": -1,
+        "activation": "step"
+      },
+      {
+        "weights": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bias": -1,
+        "activation": "step"
+      },
+      {
+        "weights": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bias": -1,
+        "activation": "step"
+      },
+      {
+        "weights": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bias": -1,
+        "activation": "step"
+      },
+      {
+        "weights": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "bias": -1,
+        "activation": "step"
+      }
+    ]
+  ]
+}

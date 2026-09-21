@@ -1,0 +1,42 @@
+name: npu-functional-validation
+on:
+  push:
+    paths: ['src/**', 'test/validation/**', 'test/requirements.txt', '.github/workflows/validation.yaml']
+  pull_request:
+    paths: ['src/**', 'test/validation/**', 'test/requirements.txt', '.github/workflows/validation.yaml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        suite: [mac, activation, spi, soc]
+        spi_div: [1]
+        include:
+          - suite: spi
+            spi_div: 4
+    steps:
+      - uses: actions/checkout@v6
+      - uses: YosysHQ/setup-oss-cad-suite@aefa8397bbf8fc6670a0a62af9805a89738f3cde # v3
+        with:
+          version: '2026-09-19'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r test/requirements.txt
+      - name: Check model, encoder and trainer
+        working-directory: test/validation
+        run: python -m unittest -v test_tools_host
+      - name: Run regression
+        working-directory: test/validation
+        run: python run.py --suite ${{ matrix.suite }} --spi-div ${{ matrix.spi_div }} --trace steps --protocol --output results
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: npu-validation-${{ matrix.suite }}-spi${{ matrix.spi_div }}
+          path: test/validation/results/

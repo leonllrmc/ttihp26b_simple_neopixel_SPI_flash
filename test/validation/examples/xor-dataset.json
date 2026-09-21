@@ -1,0 +1,5 @@
+{
+  "description": "Four XOR cases. Logical true is input code 4; output 0 is the predicted bit. Six inputs are unused zeros.",
+  "inputs": [[0,0,0,0,0,0,0,0], [0,4,0,0,0,0,0,0], [4,0,0,0,0,0,0,0], [4,4,0,0,0,0,0,0]],
+  "targets": [[0], [1], [1], [0]]
+}

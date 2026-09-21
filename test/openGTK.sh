@@ -1,0 +1,1 @@
+gtkwave --rcvar "splash_disable on" --rcvar "do_initial_zoom_fit 1" ./tb.gtkw
