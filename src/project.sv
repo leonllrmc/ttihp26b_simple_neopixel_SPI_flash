@@ -32,7 +32,8 @@ module tt_um_llr_spiflashnexopixeldriver (
   assign uio_out[2:0] = {project_extflash_spi_cs, project_extflash_spi_mosi, project_extflash_spi_sck};
   assign uio_out[7:4] = 0;
   assign uio_oe[2:0] = 3'b111;
-  assign uio_oe[3] = 1'b0;
+  assign uio_oe[3] = 1'b1;
+  assign uo_out = 0;
 
 
   flash_neopixel_top flash_neopixel_top (
