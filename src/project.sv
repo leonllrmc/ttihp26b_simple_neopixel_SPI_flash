@@ -35,7 +35,7 @@ module tt_um_llr_spiflashnexopixeldriver (
   assign uio_oe[3] = 1'b0;
 
 
-  simple_npu_top flash_neopixel_top (
+  flash_neopixel_top flash_neopixel_top (
   .CLK(clk),
   .rst_n_ext(rst_n),
   .extflash_spi_cs(project_extflash_spi_cs),
@@ -168,9 +168,6 @@ wire debug_ITS_pulse = (currentState == STATE_FETCH_HEADER1) || (currentState ==
 
     flash_addr <= 24'h000000;
 
-    neopixel_send_data <=1'b0;
-    neopixel_do_reset <= 1'b0;
-
 
     wait_cycle_count <= 0;
     led_count <= 0;
@@ -298,7 +295,7 @@ wire debug_ITS_pulse = (currentState == STATE_FETCH_HEADER1) || (currentState ==
         STATE_NEOPIXEL_START_TX: begin
           wait_counter <= 0;
           neopixel_TX_pulse <= 1'b1;
-          neopixel_data_TX <= {<<{neopixel_color_red, neopixel_color_green, neopixel_color_blue}}
+          neopixel_data_TX <= {neopixel_color_red, neopixel_color_green, neopixel_color_blue};
 
           currentLed = currentLed + 1;
           if(currentLed >= led_count) begin
@@ -351,7 +348,7 @@ wire debug_ITS_pulse = (currentState == STATE_FETCH_HEADER1) || (currentState ==
     .data_in(neopixel_data_TX),
     .send(neopixel_TX_pulse),
     .reset_pulse(neopixel_reset_pulse),
-    .busy(neopixel_busy),
+    .busy(neopixel_TX_busy),
     .dout(neopixel_out_pin)
 );
 
