@@ -28,6 +28,7 @@ module tt_um_llr_spiflashnexopixeldriver (
   wire project_extflash_spi_mosi;
   wire project_extflash_spi_miso;
   wire project_extflash_spi_sck;
+  
 
   assign uio_out[2:0] = {project_extflash_spi_cs, project_extflash_spi_mosi, project_extflash_spi_sck};
   assign uio_out[7:4] = 0;
